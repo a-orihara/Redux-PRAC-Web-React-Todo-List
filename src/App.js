@@ -11,12 +11,21 @@ function App() {
   return (
     <div className="App">
       <h1>ReduxでTodoリスト作成</h1>
-      <h2>Todoリスト</h2>
+      <h2>未完了のTodoリスト</h2>
       <ul>
       {/* useSelectorを利用してlistsの値を取得できたのでmap関数で展開し、ブラウザ上に表示させます。 */}
-        {lists.map((list, index) => (
-          <li key={index}>{list.name}</li>
-        ))}
+        {lists.filter((list)=>list.complete === false)
+              .map((list, index) => (
+                <div key={index}>{list.name}</div>
+              ))}
+      </ul>
+      <h2>完了したTodoリスト</h2>
+      <ul>
+      {/* useSelectorを利用してlistsの値を取得できたのでmap関数で展開し、ブラウザ上に表示させます。 */}
+        {lists.filter((list)=>list.complete === true)
+              .map((list, index) => (
+                <div key={index}>{list.name}</div>
+              ))}
       </ul>
     </div>
   );

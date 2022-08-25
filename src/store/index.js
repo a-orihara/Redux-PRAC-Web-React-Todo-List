@@ -8,7 +8,7 @@ const initialState = {
     },
     {
       name: "メールの返信",
-      complete: false,
+      complete: true,
     },
   ],
 };
